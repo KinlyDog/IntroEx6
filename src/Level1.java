@@ -65,9 +65,4 @@ public class Level1 {
         return str2;
     }
 
-    public static void main(String[] args) {
-        int[] hits = {1, 2, 3, 4, 5, 6, 2, 7, 8, 9};
-        int n = 10;
-        System.out.println(PatternUnlock(n, hits));
-    }
 }

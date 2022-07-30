@@ -51,7 +51,7 @@ public class Level1 {
         if (sum > (int) sum) {
             sum = Math.round(sum * 100_000);
         }
-        String str = String.valueOf((int)sum);
+        String str = String.valueOf((int) sum);
 
         if (!str.contains("0")) return str;
 
@@ -64,5 +64,4 @@ public class Level1 {
 
         return str2;
     }
-
 }

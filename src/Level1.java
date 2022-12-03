@@ -38,30 +38,31 @@ public class Level1 {
             y++;
         }
 
-        double sum = 0;
+        double unlockLineLength = 0;
         for (int i = 0; i < n - 1; i++) {
             if ((hitsNormal[i] + hitsNormal[i + 1]) % 2 == 0) {
-                sum += hypotenuse;
+                unlockLineLength += hypotenuse;
             } else {
-                sum += 1;
+                unlockLineLength += 1;
             }
         }
 
 
-        if (sum > (int) sum) {
-            sum = Math.round(sum * 100_000);
+        if (unlockLineLength > (int) unlockLineLength) {
+            unlockLineLength = Math.round(unlockLineLength * 100_000);
         }
-        String str = String.valueOf((int) sum);
 
-        if (!str.contains("0")) return str;
+        String unlockCode = String.valueOf((int) unlockLineLength);
 
-        String str2 = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) != '0') {
-                str2 += str.charAt(i);
+        if (!unlockCode.contains("0")) return unlockCode;
+
+        String unlockCode2 = "";
+        for (int i = 0; i < unlockCode.length(); i++) {
+            if (unlockCode.charAt(i) != '0') {
+                unlockCode2 += unlockCode.charAt(i);
             }
         }
 
-        return str2;
+        return unlockCode2;
     }
 }

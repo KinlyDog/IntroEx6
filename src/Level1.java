@@ -1,7 +1,7 @@
 public class Level1 {
     public static String PatternUnlock(int n, int[] hits) {
-        final double hypotenuse = Math.sqrt(2);
-        final int t = 3;
+        final double HYPOTENUSE = Math.sqrt(2);
+        final int SQUARE_SIDE = 3;
 
         int[][] squareEx = new int[t][t];
         int[][] squareNormal = new int[t][t];

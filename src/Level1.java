@@ -1,14 +1,14 @@
 public class Level1 {
     public static String PatternUnlock(int n, int[] hits) {
-        final double HYPOTENUSE = Math.sqrt(2);
         final int SQUARE_SIDE = 3;
 
         int[][] squareEx = new int[t][t];
         int[][] squareNormal = new int[t][t];
-        int x = 0;
-        for (int i = 0; i < t; i++) {
-            for (int j = 0; j < t; j++) {
-                squareNormal[i][j] = x++;
+        int index = 0;
+
+        for (int i = 0; i < SQUARE_SIDE; i++) {
+            for (int j = 0; j < SQUARE_SIDE; j++) {
+                squareNormal[i][j] = index++;
 
                 if (j == 0) {
                     squareEx[i][j] = 6 - i;
@@ -21,32 +21,37 @@ public class Level1 {
                 }
             }
         }
+        index = 0;
 
         int[] hitsNormal = new int[n];
-        int y = 0;
-        while (y < n) {
+        while (index < n) {
 
             for (int i = 0; i < t; i++) {
                 for (int j = 0; j < t; j++) {
-                    if (hits[y] == squareEx[i][j]) {
-                        hitsNormal[y] = squareNormal[i][j];
+                    if (hits[index] == squareEx[i][j]) {
+                        hitsNormal[index] = squareNormal[i][j];
                         break;
                     }
                 }
             }
 
-            y++;
+            index++;
         }
+        index = 0;
+        squareNormal = null;
+        squareEx = null;
 
+        final double HYPOTENUSE = Math.sqrt(2);
         double unlockLineLength = 0;
         for (int i = 0; i < n - 1; i++) {
             if ((hitsNormal[i] + hitsNormal[i + 1]) % 2 == 0) {
-                unlockLineLength += hypotenuse;
+                unlockLineLength += HYPOTENUSE;
             } else {
                 unlockLineLength += 1;
             }
         }
 
+        hitsNormal = null;
 
         if (unlockLineLength > (int) unlockLineLength) {
             unlockLineLength = Math.round(unlockLineLength * 100_000);
